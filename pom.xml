@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.leyou.parent</groupId>
+    <artifactId>leyou</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <modules>
+        <!--<module>ly-item</module>-->
+        <!--<module>ly-common</module>-->
+        <!--<module>ly-upload</module>-->
+        <!--<module>ly-search</module>-->
+        <!--<module>ly-goods-page</module>-->
+        <module>ly-registry</module>
+        <module>ly-api-gateway</module>
+        <module>ly-goods</module>
+        <module>ly-common</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.9.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Finchley.SR4</spring-cloud.version>
+        <mybatis.starter.version>2.0.1</mybatis.starter.version>
+        <mapper.starter.version>2.0.2</mapper.starter.version>
+        <druid.starter.version>1.1.9</druid.starter.version>
+        <mysql.version>5.1.32</mysql.version>
+        <pageHelper.starter.version>1.2.3</pageHelper.starter.version>
+        <leyou.latest.version>1.0.0-SNAPSHOT</leyou.latest.version>
+        <fastDFS.client.version>1.26.1-RELEASE</fastDFS.client.version>
+        <lombok.version>1.18.4</lombok.version>
+        <persistence-api.version>1.0.2</persistence-api.version>
+        <commons-lang3.version>3.8.1</commons-lang3.version>
+        <swagger2.version>2.9.2</swagger2.version>
+
+        <mybatis-plus.version>3.1.1</mybatis-plus.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- springCloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- mybatis启动器 -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.starter.version}</version>
+            </dependency>
+            <!--&lt;!&ndash; 通用Mapper启动器 &ndash;&gt;-->
+            <!--<dependency>-->
+                <!--<groupId>tk.mybatis</groupId>-->
+                <!--<artifactId>mapper-spring-boot-starter</artifactId>-->
+                <!--<version>${mapper.starter.version}</version>-->
+            <!--</dependency>-->
+            <!--mybatis puls 整合Springboot-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-dependencies</artifactId>
+                    </exclusion>
+                </exclusions>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!-- mybatis plus 代码生成器依赖 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+
+            <!-- 分页助手启动器 -->
+            <!--<dependency>-->
+                <!--<groupId>com.github.pagehelper</groupId>-->
+                <!--<artifactId>pagehelper-spring-boot-starter</artifactId>-->
+                <!--<version>${pageHelper.starter.version}</version>-->
+            <!--</dependency>-->
+            <!-- mysql驱动 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!--FastDFS客户端-->
+            <dependency>
+                <groupId>com.github.tobato</groupId>
+                <artifactId>fastdfs-client</artifactId>
+                <version>${fastDFS.client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.persistence</groupId>
+                <artifactId>persistence-api</artifactId>
+                <version>${persistence-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

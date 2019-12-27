@@ -1,0 +1,55 @@
+server:
+  port: 8181
+spring:
+  application:
+    name: goods-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/heima
+    username: root
+    password: ding135260.
+    hikari:
+      maximum-pool-size: 30
+      minimum-idle: 10
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
+    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${server.port}
+#mybatis plus配置
+mybatis-plus:
+  #由于本例中采用注解方式编写sql，故而此处可不配置
+  mapper-locations: classpath:/mapper/**/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  #typeAliasesPackage: com.leyou.entity
+  #枚举扫描配置（本示例未使用到）
+  #typeEnumsPackage: com.szss.admin.model.domain
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"UUID";
+    id-type: 3
+    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    field-strategy: 2
+    #机器 ID 部分(影响雪花ID)
+    workerId: 1
+    #数据标识 ID 部分(影响雪花ID)(workerId 和 datacenterId 一起配置才能重新初始化 Sequence)
+    datacenterId: 18
+    #驼峰下划线转换
+    db-column-underline: true
+    #刷新mapper 调试神器(由于本例中采用注解方式编写sql，故而不需要刷新mapper.xml文件)
+    refresh-mapper: true
+    #数据库大写下划线转换
+    capital-mode: true
+    #序列接口实现类配置,在新的mybatis-plus-boot-starter中不推荐此方式进行配置,推荐自定义bean注入
+    key-generator: com.baomidou.mybatisplus.incrementer.H2KeyGenerator
+    #逻辑删除配置（下面3个配置）
+    logic-delete-value: 1
+    logic-not-delete-value: 0
+    # SQL 解析缓存，开启后多租户 @SqlParser 注解生效
+    sql-parser-cache: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
