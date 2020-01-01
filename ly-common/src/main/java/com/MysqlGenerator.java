@@ -69,7 +69,8 @@ public class MysqlGenerator {
         dsc.setUrl("jdbc:mysql://127.0.0.1:3306/heima?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("ding135260.");
+        //dsc.setPassword("ding135260.");
+        dsc.setPassword("qq135260.");
         mpg.setDataSource(dsc);
 
         // TODO 包配置
@@ -125,7 +126,8 @@ public class MysqlGenerator {
         strategy.setLogicDeleteFieldName("deleted");
         strategy.setTablePrefix("tb_","t_");
         // TODO 指定生成的bean的数据库表名
-        strategy.setInclude("tb_category");
+//        strategy.setInclude("tb_category");
+        strategy.setInclude("tb_brand");
         //strategy.setSuperEntityColumns("id");
         // 驼峰转连字符
         strategy.setControllerMappingHyphenStyle(true);
