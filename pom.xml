@@ -42,7 +42,7 @@
         <lombok.version>1.18.4</lombok.version>
         <persistence-api.version>1.0.2</persistence-api.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
-        <swagger2.version>2.9.2</swagger2.version>
+        <swagger2.version>2.10.0</swagger2.version>
 
         <mybatis-plus.version>3.1.1</mybatis-plus.version>
     </properties>
